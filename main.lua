@@ -9,6 +9,6 @@ function love.draw()
     game:Draw()
 end
 
-function love.update()
-    game:Update()
+function love.update( dt )
+    game:Update( dt )
 end
