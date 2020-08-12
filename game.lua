@@ -44,14 +44,17 @@ function fn:Update( dt )
 end
 
 function fn:Draw()
-  for j = 1, 5 do
-    for i = 1, 4 do
-      local offsetx = 0
-      local name = "hex"
-      if j % 2 == 0 then
-        offsetx = 91
-        name = "hex2"
-      end
+  for j = 1, 15 do
+    local offsetx = 0
+    local name = "hex"
+    local length = 10
+    if j % 2 == 1 then
+      offsetx = 91
+      name = "hex2"
+      length = length - 1
+    end
+
+    for i = 1, length do
       local x = ( i * 183 + offsetx + self.camera.x ) * self.camera.scale
       local y = ( j * 79 + self.camera.y ) * self.camera.scale
       love.graphics.draw( self.atlas:GetImage( name ), x, y, 0, self.camera.scale, self.camera.scale )
